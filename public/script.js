@@ -1,13 +1,3 @@
-/*
-  IMPORTANTE:
-  Para testar tudo localmente:
-    API_URL = "http://localhost:3000/api"
-
-  Quando publicar o back-end em um serviço online, troque pelo endereço da API.
-  Exemplo:
-    const API_URL = "https://sua-api.exemplo.com/api";
-*/
-
 const API_URL = "https://gamelog-oat.onrender.com";
 
 let jogos = [];
