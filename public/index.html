@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameLog | Biblioteca de Jogos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🎮</span>
+      <div>
+        <h1>GameLog</h1>
+        <p>Minha biblioteca de jogos</p>
+      </div>
+    </div>
+
+    <button id="btnNovo" class="btn btn-primary">＋ Adicionar jogo</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">OAT1 • CRUD com Array</span>
+        <h2>Organize sua jornada gamer.</h2>
+        <p>
+          Cadastre, consulte, edite e remova jogos.
+        </p>
+      </div>
+    </section>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="toolbar">
+      <div class="search-box">
+        <span>🔎</span>
+        <input id="busca" type="search" placeholder="Pesquisar jogo...">
+      </div>
+
+      <select id="filtroStatus">
+        <option value="Todos">Todos os status</option>
+        <option value="Ainda não comecei">Ainda não comecei</option>
+        <option value="Pausado">Pausado</option>
+        <option value="Em andamento">Em andamento</option>
+        <option value="Finalizado">Finalizado</option>
+      </select>
+    </section>
+
+    <section>
+      <div id="mensagem" class="message hidden"></div>
+      <div id="listaJogos" class="games-grid"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="btnFecharModal" class="close-btn" aria-label="Fechar">×</button>
+
+      <h2 id="tituloModal">Adicionar jogo</h2>
+      <p class="modal-subtitle">Preencha os dados da sua biblioteca.</p>
+
+      <form id="formJogo">
+        <input type="hidden" id="jogoId">
+
+        <label>
+          Nome do jogo
+          <input id="nome" type="text" required maxlength="80" placeholder="Ex.: Elden Ring">
+        </label>
+
+        <div class="form-row">
+          <label>
+            Plataforma
+            <select id="plataforma" required>
+              <option value="">Selecione</option>
+              <option>PC</option>
+              <option>PlayStation</option>
+              <option>Xbox</option>
+              <option>Nintendo Switch</option>
+              <option>Nintendo DS</option>
+              <option>Mobile</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label>
+            Gênero
+            <select id="genero" required>
+              <option value="">Selecione</option>
+              <option>RPG</option>
+              <option>JRPG</option>
+              <option>Action RPG</option>
+              <option>Metroidvania</option>
+              <option>Roguelike</option>
+              <option>Ação</option>
+              <option>Aventura</option>
+              <option>Estratégia</option>
+              <option>Outro</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <label>
+            Status
+            <select id="status" required>
+              <option>Ainda não comecei</option>
+              <option>Pausado</option>
+              <option>Em andamento</option>
+              <option>Finalizado</option>
+            </select>
+          </label>
+
+          <label>
+            Nota
+            <input id="nota" type="number" min="0" max="10" step="0.5" placeholder="0 a 10">
+          </label>
+        </div>
+
+        <label>
+          Horas jogadas
+          <input id="horas" type="number" min="0" step="1" placeholder="Ex.: 25">
+        </label>
+
+        <div class="form-actions">
+          <button type="button" id="btnCancelar" class="btn btn-secondary">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar jogo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modalExcluir" class="modal hidden">
+    <div class="modal-card delete-card">
+      <h2>Excluir jogo?</h2>
+      <p>Você realmente deseja remover <strong id="nomeExcluir"></strong> da biblioteca?</p>
+
+      <div class="form-actions">
+        <button id="btnCancelarExclusao" class="btn btn-secondary">Cancelar</button>
+        <button id="btnConfirmarExclusao" class="btn btn-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>GameLog • Projeto CRUD com Array • Desenvolvimento de APIs</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
