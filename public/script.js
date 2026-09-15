@@ -1,4 +1,4 @@
-const API_URL = "https://gamelog-oat.onrender.com";
+const API_URL = "https://gamelog-oat-1.onrender.com/api";
 
 let jogos = [];
 let idParaExcluir = null;
